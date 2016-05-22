@@ -1,0 +1,7 @@
+# source files directory
+src.dir=src
+
+# output director
+build.dir=bin
+
+

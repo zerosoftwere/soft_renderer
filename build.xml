@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Gecko Renderer" default="build">
+
+	<property file="build.properties.dev"/>
+
+	<path id="master-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<pathelement path="${build.dir}"/>
+	</path>
+
+	<target name="build">
+		<mkdir dir="${build.dir}"/>
+		<javac destdir="${build.dir}">
+			<src path="${src.dir}"/>
+		</javac>
+	</target>
+
+	<target name="clean">
+		<delete>
+			<fileset dir="${build.dir}">
+				<include name="**/*.class"/>
+			</fileset>
+		</delete>
+	</target>
+
+</project>
