@@ -25,6 +25,25 @@ public class Device
 		this.backBuffer	 = new byte[width * height * 4];
 	}
 
+	public void drawPixel(int x, int y, byte a, byte r, byte g, byte b)
+	{
+		//TODO: task to be completed by coders niche
+		
+		/*
+			Take into account the ordering of pixels in the back buffer
+		 	are stored as (a, b, g, r) so that the pixel are writen as
+		 	backBuffer[indxex	 ] = a;
+		 	backBuffer[indxex + 1] = b;
+		 	backBuffer[indxex + 2] = g;
+		 	backBuffer[indxex + 3] = r;
+		*/
+	}
+
+	public void drawLine(int x1, int y1, int x2, int y2, byte a, byte r, byte g, byte b)
+	{
+		//TODO: task to be completed by coders niche
+	}
+
 	public void clear(byte shade)
 	{
 		Arrays.fill(this.backBuffer, shade);
