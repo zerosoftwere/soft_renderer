@@ -17,6 +17,7 @@ public class Main
 			device.clear((byte)0x00);
 
 			drawRandomPixels(device);
+			drawTrangle(device);
 
 			device.present();
 		}
@@ -36,5 +37,12 @@ public class Main
 
 			device.drawPixel(x, y, a, r, g, b);
 		}
+	}
+
+	public static void drawTrangle(Device device)
+	{
+		device.drawLine(320, 120, 160, 360, (byte)0xFF, (byte)0x00, (byte)0x00, (byte)0xFF);
+		device.drawLine(320, 120, 480, 360, (byte)0xFF, (byte)0x00, (byte)0x00, (byte)0xFF);
+		device.drawLine(160, 360, 480, 360, (byte)0xFF, (byte)0x00, (byte)0x00, (byte)0xFF);
 	}
 }
