@@ -32,9 +32,8 @@ public class Display extends Canvas
 		this.frame.setVisible(true);
 
 		createBufferStrategy(1);
-		Graphics graphics = getBufferStrategy().getDrawGraphics();
-
-		this.device = new Device(graphics, width, height);
+		Graphics graphics	= getBufferStrategy().getDrawGraphics();
+		this.device 		= new Device(graphics, width, height);
 	}
 
 	public int getWidth()
