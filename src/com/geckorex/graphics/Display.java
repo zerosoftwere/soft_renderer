@@ -8,12 +8,10 @@ import java.awt.image.BufferStrategy;
 
 public class Display extends Canvas
 {
-	private final int 		width;
-	private final int 		height;
-	private Graphics 		graphics;
-	private BufferStrategy 	bufferStrategy;
-	private JFrame 			frame;
-	private Device 			device;
+	private final int		width;
+	private final int		height;
+	private JFrame			frame;
+	private Device			device;
 
 	public Display(int width, int height, String caption)
 	{
@@ -34,10 +32,9 @@ public class Display extends Canvas
 		this.frame.setVisible(true);
 
 		createBufferStrategy(1);
-		this.bufferStrategy = getBufferStrategy();
-		this.graphics 		= bufferStrategy.getDrawGraphics();
+		Graphics graphics = getBufferStrategy().getDrawGraphics();
 
-		this.device = new Device(this.graphics, width, height);
+		this.device = new Device(graphics, width, height);
 	}
 
 	public int getWidth()

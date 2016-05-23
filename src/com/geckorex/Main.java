@@ -6,7 +6,8 @@ import com.geckorex.graphics.Device;
 public class Main
 {
 	public static final int DEFAULT_WIDTH 	= 640;
-	public static final int DEFAULT_HEIGHT 	= 480; 
+	public static final int DEFAULT_HEIGHT 	= 480;
+	
 	public static void main(String[] args)
 	{
 		Display display = new Display(DEFAULT_WIDTH, DEFAULT_HEIGHT, "Gecko Renderer");
