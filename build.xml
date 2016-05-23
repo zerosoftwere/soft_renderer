@@ -3,13 +3,6 @@
 
 	<property file="build.properties.dev"/>
 
-	<path id="master-classpath">
-		<fileset dir="${lib.dir}">
-			<include name="**/*.jar"/>
-		</fileset>
-		<pathelement path="${build.dir}"/>
-	</path>
-
 	<target name="build">
 		<mkdir dir="${build.dir}"/>
 		<javac destdir="${build.dir}">
