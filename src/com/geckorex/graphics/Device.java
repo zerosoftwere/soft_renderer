@@ -38,20 +38,20 @@ public class Device
 	public void drawLine(int x1, int y1, int x2, int y2, byte a, byte r, byte g, byte b)
 	{
 		int dx = Math.abs(x2 - x1);
-	    int dy = Math.abs(y2 - y1);
-	    int sx = (x1 < x2) ? 1 : -1;
-	    int sy = (y1 < y2) ? 1 : -1;
-	    int err = dx - dy;
+		int dy = Math.abs(y2 - y1);
+		int sx = (x1 < x2) ? 1 : -1;
+		int sy = (y1 < y2) ? 1 : -1;
+		int err = dx - dy;
 
-	    while (true) 
-	    {
-	        drawPixel(x1, y1, a, r, g, b);
+		while (true) 
+		{
+			drawPixel(x1, y1, a, r, g, b);
 
-	        if ((x1 == x2) && (y1 == y2)) break;
-	        int e2 = 2 * err;
-	        if (e2 > -dy) { err -= dy; x1 += sx; }
-	        if (e2 <  dx) { err += dx; y1 += sy; }
-	    }
+			if ((x1 == x2) && (y1 == y2)) break;
+			int e2 = 2 * err;
+			if (e2 > -dy) { err -= dy; x1 += sx; }
+			if (e2 <  dx) { err += dx; y1 += sy; }
+		}
 	}
 
 	public void clear(byte shade)
