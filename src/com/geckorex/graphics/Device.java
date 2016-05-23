@@ -8,9 +8,9 @@ import java.util.Arrays;
 
 public class Device
 {
-	private final int 		width;
-	private final int 		height;
-	private Graphics 		graphics;
+	private final int		width;
+	private final int		height;
+	private Graphics		graphics;
 	private BufferedImage	imageBuffer;
 	private byte[]			frontBuffer;
 	private byte[]			backBuffer;
@@ -27,21 +27,31 @@ public class Device
 
 	public void drawPixel(int x, int y, byte a, byte r, byte g, byte b)
 	{
-		//TODO: task to be completed by coders niche
-		
-		/*
-			Take into account the ordering of pixels in the back buffer
-		 	are stored as (a, b, g, r) so that the pixel are writen as
-		 	backBuffer[indxex	 ] = a;
-		 	backBuffer[indxex + 1] = b;
-		 	backBuffer[indxex + 2] = g;
-		 	backBuffer[indxex + 3] = r;
-		*/
+		int index = (x + y * width) * 4;
+
+		this.backBuffer[index    ] = a;
+		this.backBuffer[index + 1] = b;
+		this.backBuffer[index + 2] = g;
+		this.backBuffer[index + 3] = r;
 	}
 
 	public void drawLine(int x1, int y1, int x2, int y2, byte a, byte r, byte g, byte b)
 	{
-		//TODO: task to be completed by coders niche
+		int dx = Math.abs(x2 - x1);
+	    int dy = Math.abs(y2 - y1);
+	    int sx = (x1 < x2) ? 1 : -1;
+	    int sy = (y1 < y2) ? 1 : -1;
+	    int err = dx - dy;
+
+	    while (true) 
+	    {
+	        drawPixel(x1, y1, a, r, g, b);
+
+	        if ((x1 == x2) && (y1 == y2)) break;
+	        int e2 = 2 * err;
+	        if (e2 > -dy) { err -= dy; x1 += sx; }
+	        if (e2 <  dx) { err += dx; y1 += sy; }
+	    }
 	}
 
 	public void clear(byte shade)
@@ -53,7 +63,7 @@ public class Device
 	{
 		for (int i = 0; i < this.width * this.height; ++i)
 		{
-			this.frontBuffer[i * 3	  ] = this.backBuffer[i * 4 + 1];
+			this.frontBuffer[i * 3    ] = this.backBuffer[i * 4 + 1];
 			this.frontBuffer[i * 3 + 1] = this.backBuffer[i * 4 + 2];
 			this.frontBuffer[i * 3 + 2] = this.backBuffer[i * 4 + 3];
 		}
